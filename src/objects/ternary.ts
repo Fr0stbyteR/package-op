@@ -32,7 +32,7 @@ export default class Ternary extends Op<[any, any, any], [any], [any, any]> {
         default: false,
         description: "Initial false output"
     }];
-    _ = { args: [true, false] as any[], result: true as any };
+    _ = { args: [this.args.length ? this.args[0] : true, this.args.length > 1 ? this.args[1] : false], result: undefined as any };
     subscribe() {
         super.subscribe();
         this.on("preInit", () => {
@@ -40,11 +40,8 @@ export default class Ternary extends Op<[any, any, any], [any], [any, any]> {
             this.outlets = 1;
         });
         this.on("updateArgs", (args) => {
-            this._.args = [true, false];
-            this._.result = true;
-            if (!args || args.length === 0) return;
-            this._.args[0] = args[0];
-            this._.args[1] = args[1];
+            this._.args = [args.length ? args[0] : true, args.length > 1 ? args[1] : false];
+            this._.result = undefined;
         });
         this.on("inlet", ({ data, inlet }) => {
             if (inlet === 0) {

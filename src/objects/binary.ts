@@ -24,7 +24,7 @@ export default class Binary extends Op<[any, any], [any], [any]> {
         description: "Initial second element"
     }];
     execute: (a: any, b: any) => any;
-    _ = { arg: undefined as any, result: undefined as any };
+    _ = { arg: this.args[0], result: undefined as any };
     subscribe() {
         super.subscribe();
         this.on("preInit", () => {
