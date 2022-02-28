@@ -372,6 +372,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const functions = {
+  "=+": "UnaryAdd",
+  "=-": "UnarySub",
   "+": "Add",
   "-": "Sub",
   "!-": "$Sub",
@@ -395,10 +397,12 @@ const functions = {
   "&&": "And",
   "||": "Or",
   "!": "Not",
+  "!!": "ToBoolean",
   "&": "BAnd",
   "|": "BOr",
   "^": "BXor",
   "~": "BNot",
+  "~~": "BitTrunk",
   "<<": "BLS",
   ">>": "BRS",
   ">>>": "BRSZ",
@@ -423,7 +427,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const functions = {
+  "=+": (a) => +a,
   "+": (a, b) => a + b,
+  "=-": (a) => -a,
   "-": (a, b) => a - b,
   "!-": (a, b) => b - a,
   "*": (a, b) => a * b,
@@ -446,10 +452,12 @@ const functions = {
   "&&": (a, b) => a && b,
   "||": (a, b) => a || b,
   "!": (a) => !a,
+  "!!": (a) => !!a,
   "&": (a, b) => a & b,
   "|": (a, b) => a | b,
   "^": (a, b) => a ^ b,
   "~": (a) => ~a,
+  "~~": (a) => ~~a,
   "<<": (a, b) => a << b,
   ">>": (a, b) => a >> b,
   ">>>": (a, b) => a >>> b,
